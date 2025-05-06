@@ -79,7 +79,8 @@ public class MainThreadResponseDelivery implements ResponseDelivery {
         if (checkMainThread()) {
             synchronized (LISTENER_BLOCK) {
                 for (SocketListener listener : mSocketListenerList) {
-                    listener.onConnected();
+                    if (listener != null)
+                        listener.onConnected();
                 }
             }
         } else {
@@ -98,7 +99,8 @@ public class MainThreadResponseDelivery implements ResponseDelivery {
         if (checkMainThread()) {
             synchronized (LISTENER_BLOCK) {
                 for (SocketListener listener : mSocketListenerList) {
-                    listener.onConnectFailed(cause);
+                    if (listener != null)
+                        listener.onConnectFailed(cause);
                 }
             }
         } else {
@@ -118,7 +120,7 @@ public class MainThreadResponseDelivery implements ResponseDelivery {
         if (checkMainThread()) {
             synchronized (LISTENER_BLOCK) {
                 for (SocketListener listener : mSocketListenerList) {
-                    listener.onDisconnect();
+                    if (listener != null) listener.onDisconnect();
                 }
             }
         } else {
@@ -137,7 +139,8 @@ public class MainThreadResponseDelivery implements ResponseDelivery {
         if (checkMainThread()) {
             synchronized (LISTENER_BLOCK) {
                 for (SocketListener listener : mSocketListenerList) {
-                    listener.onSendDataError(errorResponse);
+                    if (listener != null)
+                        listener.onSendDataError(errorResponse);
                 }
             }
         } else {
@@ -157,7 +160,8 @@ public class MainThreadResponseDelivery implements ResponseDelivery {
         if (checkMainThread()) {
             synchronized (LISTENER_BLOCK) {
                 for (SocketListener listener : mSocketListenerList) {
-                    listener.onMessage(message, data);
+                    if (listener != null)
+                        listener.onMessage(message, data);
                 }
             }
         } else {
@@ -178,7 +182,8 @@ public class MainThreadResponseDelivery implements ResponseDelivery {
         if (checkMainThread()) {
             synchronized (LISTENER_BLOCK) {
                 for (SocketListener listener : mSocketListenerList) {
-                    listener.onMessage(bytes, data);
+                    if (listener != null)
+                        listener.onMessage(bytes, data);
                 }
             }
         } else {
@@ -199,7 +204,8 @@ public class MainThreadResponseDelivery implements ResponseDelivery {
         if (checkMainThread()) {
             synchronized (LISTENER_BLOCK) {
                 for (SocketListener listener : mSocketListenerList) {
-                    listener.onPing(framedata);
+                    if (listener != null)
+                        listener.onPing(framedata);
                 }
             }
         } else {
@@ -219,7 +225,8 @@ public class MainThreadResponseDelivery implements ResponseDelivery {
         if (checkMainThread()) {
             synchronized (LISTENER_BLOCK) {
                 for (SocketListener listener : mSocketListenerList) {
-                    listener.onPong(framedata);
+                    if (listener != null)
+                        listener.onPong(framedata);
                 }
             }
         } else {

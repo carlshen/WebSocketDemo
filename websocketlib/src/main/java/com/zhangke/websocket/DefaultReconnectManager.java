@@ -42,8 +42,7 @@ public class DefaultReconnectManager implements ReconnectManager {
 
     private final ExecutorService singleThreadPool = Executors.newSingleThreadExecutor();
 
-    public DefaultReconnectManager(WebSocketManager webSocketManager,
-                                   OnConnectListener onDisconnectListener) {
+    public DefaultReconnectManager(WebSocketManager webSocketManager, OnConnectListener onDisconnectListener) {
         this.mWebSocketManager = webSocketManager;
         this.mOnDisconnectListener = onDisconnectListener;
         reconnecting = false;

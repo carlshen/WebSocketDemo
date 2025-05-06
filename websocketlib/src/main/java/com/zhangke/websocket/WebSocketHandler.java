@@ -74,6 +74,13 @@ public class WebSocketHandler {
         return defaultWebSocket;
     }
 
+    public static void destroy() {
+        if (defaultWebSocket != null) {
+            defaultWebSocket.destroy();
+            defaultWebSocket = null;
+        }
+    }
+
     /**
      * 通过唯一标识符新建一个 WebSocket 连接
      *

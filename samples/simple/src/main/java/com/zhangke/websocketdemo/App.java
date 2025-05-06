@@ -21,7 +21,7 @@ public class App extends Application {
     private void initWebSocket(){
         WebSocketSetting setting = new WebSocketSetting();
         //连接地址，必填，例如 wss://echo.websocket.org
-        setting.setConnectUrl("your connect url");//必填
+        setting.setConnectUrl("ws://47.94.235.101/ws/webSocket/333");//必填
 
         //设置连接超时时间
         setting.setConnectTimeout(15 * 1000);
